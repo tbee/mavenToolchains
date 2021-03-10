@@ -1,4 +1,5 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
+//JAVA 9+
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -38,11 +39,21 @@ import org.xml.sax.SAXException;
  * removes any jdk toolchains marked with 'automaticallyAddedFromSDKMAN',
  * and then runs 'sdk list java' to add the Java JDK's that are available locally.
  * 
- * You can compile and run this class normally, but it was written to be used with jbang.
- * https://www.jbang.dev/
- * Which means you can just set the execute flag and run the java file directly.
- * Naturally you need SDKMAN installed, which just happen to also be able to install jbang.
+ * You can compile and run this class like any Java application, but it is intended to be used with jbang.
+ * - https://www.jbang.dev/
+ * 
+ * Naturally you need SDKMAN installed to provide the JDK's, and it also happens to be able to install jbang.
  * -  sdk install jbang
+ * 
+ * Run like this:
+ * -  jbang GenerateToolchainsFromSDKMAN.java
+ * 
+ * Or on Linux/OSX just set the executable flag and run the java file directly.
+ * 
+ * You can also run the latest version directly from github:
+ * - jbang https://raw.githubusercontent.com/tbee/mavenToolchains/main/GenerateToolchainsFromSDKMAN.java
+ * 
+ * Or use alias, autocompletion or any of the other powerful jbang features. Do take a look at jbang's documentation.
  */
 public class GenerateToolchainsFromSDKMAN {
 
