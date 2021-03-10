@@ -37,6 +37,12 @@ import org.xml.sax.SAXException;
  * This class reads or creates the ~/.m2/toolchains.xml file,
  * removes any jdk toolchains marked with 'automaticallyAddedFromSDKMAN',
  * and then runs 'sdk list java' to add the Java JDK's that are available locally.
+ * 
+ * You can compile and run this class normally, but it was written to be used with jbang.
+ * https://www.jbang.dev/
+ * Which means you can just set the execute flag and run the java file directly.
+ * Naturally you need SDKMAN installed, which just happen to also be able to install jbang.
+ * -  sdk install jbang
  */
 public class GenerateToolchainsFromSDKMAN {
 
@@ -73,8 +79,18 @@ public class GenerateToolchainsFromSDKMAN {
         
         // Run SDKMAN
         // TODO: handle different environments and shells
-        String[] command = {"bash", "-c", "source ~/.sdkman/bin/sdkman-init.sh; sdk list java"};
-        Process proc = Runtime.getRuntime().exec(command);
+        Process proc = null;
+        try {
+            // try bash
+            String[] command = {"bash", "-c", "source ~/.sdkman/bin/sdkman-init.sh; sdk list java"};
+            proc = Runtime.getRuntime().exec(command);
+        }
+        catch (Exception e) {
+            
+            // try zsh
+            String[] command = {"zsh", "-c", "source ~/.sdkman/bin/sdkman-init.sh; sdk list java"};
+            proc = Runtime.getRuntime().exec(command);
+        }
         
         // Print out STDERR
         BufferedReader strErr = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
@@ -103,7 +119,7 @@ public class GenerateToolchainsFromSDKMAN {
             // Split the string into blocks
             String[] strings = s.split("\\|");
             // Make sure the output is what we expect
-            if (strings.length < 6) {
+            if (strings.length != 6) {
                 unexpectedOutput = true;
                 continue;
             }
