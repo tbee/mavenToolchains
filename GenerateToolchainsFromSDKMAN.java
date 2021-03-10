@@ -135,7 +135,8 @@ public class GenerateToolchainsFromSDKMAN {
                 continue;
             }
             // Find the locally installed JDK's
-            if (!"installed".equals(strings[4].trim())) {
+            String status = strings[4].trim();
+            if (!"installed".equals(status) && !"local only".equals(status)) {
                 continue;
             }
             
