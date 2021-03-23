@@ -45,15 +45,14 @@ import org.xml.sax.SAXException;
  * Naturally you need SDKMAN installed to provide the JDK's, and it also happens to be able to install jbang.
  * -  sdk install jbang
  * 
- * Run like this:
- * -  jbang GenerateToolchainsFromSDKMAN.java
+ * Run this script directly from github (using jbang's implicit catalogs):
+ * - jbang toolchains@tbee
  * 
- * Or on Linux/OSX just set the executable flag and run the java file directly.
+ * Or, if you've checkouted this repository, simply run the java file:
+ * - jbang GenerateToolchainsFromSDKMAN.java
  * 
- * You can also run the latest version directly from github:
- * - jbang https://raw.githubusercontent.com/tbee/mavenToolchains/main/GenerateToolchainsFromSDKMAN.java
- * 
- * Or use alias, autocompletion or any of the other powerful jbang features. Do take a look at jbang's documentation.
+ * On Linux/OSX just set the executable flag and run the java file directly.
+ * - GenerateToolchainsFromSDKMAN.java
  */
 public class GenerateToolchainsFromSDKMAN {
 
