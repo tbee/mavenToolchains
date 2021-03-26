@@ -1,0 +1,8 @@
+{
+	"aliases": {
+		"sdkman": {
+			"script-ref": "https://raw.githubusercontent.com/tbee/mavenToolchains/main/GenerateToolchainsFromSDKMAN.java",
+			"description": "Generate ~/.m2/toolchains.xml jdk entries using the installed Java JDKs in SDKMAN"
+		}
+	}
+}
