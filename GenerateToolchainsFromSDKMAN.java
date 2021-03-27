@@ -46,7 +46,7 @@ import org.xml.sax.SAXException;
  * -  sdk install jbang
  * 
  * Run this script directly from github (using jbang's implicit catalogs):
- * - jbang mvnToolchainsSDKMAN@tbee
+ * - jbang sdkman@tbee/mavenToolchains
  * 
  * Or, if you've checkouted this repository, simply run the java file:
  * - jbang GenerateToolchainsFromSDKMAN.java
